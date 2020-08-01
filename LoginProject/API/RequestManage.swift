@@ -26,18 +26,11 @@ public class RequestManager {
     static let disposeBag = DisposeBag()
     class func getJSON(url: String!, parameters: Dictionary<String, Any>?, method: HTTPMethod) -> Observable<JSON>{
         return Observable.create({ (observe) -> Disposable in
-            let headers: HTTPHeaders = [
-                /* "Authorization": "your_access_token",  in case you need authorization header */
-                //            "Content-type": "multipart/form-data",
-                "Content-type": "application/json;charset=UTF-8",
-                "Accept": "application/json",
-                "Authorization": "5H801z7dtj1qjqnU0StuL43bCJlcl337M7pGa7fM1C4="
-            ]
             let request =  Alamofire.request(ApiUrl.BASE_API_URL + url,
                                                     method: method,
                                                     parameters: parameters,
                                                     encoding: JSONEncoding.default,
-                                                    headers: headers).responseJSON { (response) in
+                                                    headers: nil).responseJSON { (response) in
                                                         switch response.result {
                                                         case .success(let value):
                                                             let swiftJsonVar = JSON(value)
@@ -128,14 +121,4 @@ struct ErrorGeneral: Codable {
         message = try values.decodeIfPresent(String.self, forKey: .message)
     }
 }
-
-// MARK: - Error
-//struct ErrorService: Codable {
-//    let message, code: String?
-//    enum CodingKeys: String, CodingKey {
-//        case code
-//        case message = "message"
-//    }
-//}
-
 

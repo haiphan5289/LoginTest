@@ -13,7 +13,6 @@ import RxSwift
 
 class ViewController: UIViewController {
     private var disposeBag = DisposeBag()
-    private var homeVM: HomeViewModel = HomeViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -41,10 +40,11 @@ extension ViewController {
     }
     private func isLogin() {
         let user = self.readUserDefault(offtype: String.self, key: UserDefaulStandard.userInfo.rawValue)
-        if (user == nil) {
+        guard (user != nil) else {
             let vc = LoginVC(nibName: "LoginVC", bundle: nil)
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
+            return
         }
     }
 }

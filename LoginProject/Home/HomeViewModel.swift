@@ -7,6 +7,3 @@
 //
 import UIKit
 
-struct HomeViewModel: Codable {
-
-}
