@@ -21,7 +21,6 @@ enum TabbarType: Int, CaseIterable {
             return LocalizeText.home.localizedText
         case .setting:
             return LocalizeText.setting.localizedText
-            
         }
     }
 }

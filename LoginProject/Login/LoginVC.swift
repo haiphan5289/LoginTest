@@ -60,7 +60,7 @@ extension LoginVC {
             wSelf.loginVM.login(email: email, password: password)
         }.disposed(by: disposeBag)
         
-        loginVM.reponseAPI.bind { [weak self] (isSuccess, msg) in
+        loginVM.reponseAPI.asObserver().bind { [weak self] (isSuccess, msg) in
             guard let wSelf = self else { return }
             
             guard isSuccess else {

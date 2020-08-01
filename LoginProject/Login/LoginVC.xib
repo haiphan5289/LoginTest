@@ -115,6 +115,6 @@
     </objects>
     <resources>
         <image name="ic_password_black" width="133" height="152"/>
-        <image name="ic_user_inactive" width="57" height="57"/>
+        <image name="ic_user_inactive" width="19" height="19"/>
     </resources>
 </document>
