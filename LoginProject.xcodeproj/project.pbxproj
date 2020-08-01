@@ -21,6 +21,10 @@
 		1B78860824D51051008389C8 /* APILink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B78860724D51051008389C8 /* APILink.swift */; };
 		1B78860C24D516CE008389C8 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B78860A24D516CE008389C8 /* LoginVC.swift */; };
 		1B78860D24D516CE008389C8 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B78860B24D516CE008389C8 /* LoginVC.xib */; };
+		1B78861524D519E6008389C8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B78861424D519E6008389C8 /* HomeViewModel.swift */; };
+		1B78861A24D592D9008389C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B78861C24D592D9008389C8 /* Localizable.strings */; };
+		1B78861F24D592FA008389C8 /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B78861E24D592FA008389C8 /* Localize.swift */; };
+		1B78862124D59A0D008389C8 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B78862024D59A0D008389C8 /* LoginVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,11 @@
 		1B78860724D51051008389C8 /* APILink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILink.swift; sourceTree = "<group>"; };
 		1B78860A24D516CE008389C8 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		1B78860B24D516CE008389C8 /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
+		1B78861424D519E6008389C8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		1B78861624D59294008389C8 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		1B78861B24D592D9008389C8 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1B78861E24D592FA008389C8 /* Localize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localize.swift; sourceTree = "<group>"; };
+		1B78862024D59A0D008389C8 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		37D62E416F93379E9E9995EE /* Pods-LoginProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginProject.release.xcconfig"; path = "Target Support Files/Pods-LoginProject/Pods-LoginProject.release.xcconfig"; sourceTree = "<group>"; };
 		799A9BC9FB14A7F7199098FD /* Pods_LoginProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoginProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -79,13 +88,13 @@
 			children = (
 				1B71173E24D45F0900B81AE8 /* AppDelegate.swift */,
 				1B71174024D45F0900B81AE8 /* SceneDelegate.swift */,
-				1B71175824D4689100B81AE8 /* Extension.swift */,
-				1B71175624D467F600B81AE8 /* LoginTabbar.swift */,
+				1B78861724D592BC008389C8 /* Resource */,
+				1B78861324D51934008389C8 /* HomeTabbar */,
+				1B78861224D51922008389C8 /* Extension */,
 				1B78860E24D517E9008389C8 /* Home */,
 				1B78860F24D51805008389C8 /* Setting */,
 				1B78860924D51646008389C8 /* Login */,
-				1B71175C24D46B7000B81AE8 /* RequestManage.swift */,
-				1B78860724D51051008389C8 /* APILink.swift */,
+				1B78861124D5190C008389C8 /* API */,
 				1B71174724D45F0C00B81AE8 /* Assets.xcassets */,
 				1B71174924D45F0C00B81AE8 /* LaunchScreen.storyboard */,
 				1B71174C24D45F0C00B81AE8 /* Info.plist */,
@@ -98,6 +107,7 @@
 			children = (
 				1B78861024D51815008389C8 /* Model */,
 				1B78860A24D516CE008389C8 /* LoginVC.swift */,
+				1B78862024D59A0D008389C8 /* LoginVM.swift */,
 				1B78860B24D516CE008389C8 /* LoginVC.xib */,
 			);
 			path = Login;
@@ -107,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				1B71174224D45F0900B81AE8 /* ViewController.swift */,
+				1B78861424D519E6008389C8 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -125,6 +136,40 @@
 				1B78860524D50DAA008389C8 /* LoginModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		1B78861124D5190C008389C8 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				1B71175C24D46B7000B81AE8 /* RequestManage.swift */,
+				1B78860724D51051008389C8 /* APILink.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		1B78861224D51922008389C8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1B71175824D4689100B81AE8 /* Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		1B78861324D51934008389C8 /* HomeTabbar */ = {
+			isa = PBXGroup;
+			children = (
+				1B71175624D467F600B81AE8 /* LoginTabbar.swift */,
+			);
+			path = HomeTabbar;
+			sourceTree = "<group>";
+		};
+		1B78861724D592BC008389C8 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				1B78861C24D592D9008389C8 /* Localizable.strings */,
+				1B78861E24D592FA008389C8 /* Localize.swift */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		2ABFFC6557A7ABECFAD50B7D /* Frameworks */ = {
@@ -188,6 +233,7 @@
 			knownRegions = (
 				en,
 				Base,
+				vi,
 			);
 			mainGroup = 1B71173224D45F0900B81AE8;
 			productRefGroup = 1B71173C24D45F0900B81AE8 /* Products */;
@@ -205,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B78860D24D516CE008389C8 /* LoginVC.xib in Resources */,
+				1B78861A24D592D9008389C8 /* Localizable.strings in Resources */,
 				1B71174B24D45F0C00B81AE8 /* LaunchScreen.storyboard in Resources */,
 				1B71174824D45F0C00B81AE8 /* Assets.xcassets in Resources */,
 			);
@@ -259,7 +306,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B78861F24D592FA008389C8 /* Localize.swift in Sources */,
+				1B78862124D59A0D008389C8 /* LoginVM.swift in Sources */,
 				1B71175D24D46B7000B81AE8 /* RequestManage.swift in Sources */,
+				1B78861524D519E6008389C8 /* HomeViewModel.swift in Sources */,
 				1B71174324D45F0900B81AE8 /* ViewController.swift in Sources */,
 				1B71173F24D45F0900B81AE8 /* AppDelegate.swift in Sources */,
 				1B71174124D45F0900B81AE8 /* SceneDelegate.swift in Sources */,
@@ -279,8 +329,17 @@
 			isa = PBXVariantGroup;
 			children = (
 				1B71174A24D45F0C00B81AE8 /* Base */,
+				1B78861624D59294008389C8 /* vi */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		1B78861C24D592D9008389C8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1B78861B24D592D9008389C8 /* vi */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -290,6 +349,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -350,6 +410,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

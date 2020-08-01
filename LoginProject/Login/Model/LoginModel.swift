@@ -27,7 +27,7 @@ struct OptionalMessageDTO<T:Codable>: Codable {
     
 }
 
-struct LoginModel: Codable {
+struct UserModel: Codable {
     let id: Int?
     let email: String?
     let name: String?

@@ -1,22 +1,115 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC" customModule="LoginProject" customModuleProvider="target">
             <connections>
+                <outlet property="btLogin" destination="KcF-n5-jz0" id="gdD-cA-xPF"/>
+                <outlet property="lbTitle" destination="JS8-h8-ptT" id="wp8-Az-KtF"/>
+                <outlet property="tfEmail" destination="qMS-Tc-vtu" id="Woq-yw-U6m"/>
+                <outlet property="tfPassword" destination="lO9-ZL-t68" id="6MU-Ck-9xQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VIA-kg-sNr">
+                    <rect key="frame" x="16" y="318" width="382" height="100"/>
+                    <subviews>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zbR-vG-vyX">
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="45"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_user_login" translatesAutoresizingMaskIntoConstraints="NO" id="gKj-ae-vYc">
+                                    <rect key="frame" x="30" y="12.666666666666686" width="20" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="20" id="7oe-MJ-r1l"/>
+                                        <constraint firstAttribute="height" constant="20" id="kgt-z2-6up"/>
+                                    </constraints>
+                                </imageView>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tên đăng nhập" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qMS-Tc-vtu">
+                                    <rect key="frame" x="70" y="12" width="302" height="21"/>
+                                    <color key="backgroundColor" red="0.97246402499999995" green="0.97260338069999996" blue="0.9724336267" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" red="0.97246402499999995" green="0.97260338069999996" blue="0.9724336267" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="qMS-Tc-vtu" firstAttribute="centerY" secondItem="zbR-vG-vyX" secondAttribute="centerY" id="5Zl-e2-FQ9"/>
+                                <constraint firstAttribute="height" constant="45" id="D21-sT-4mx"/>
+                                <constraint firstAttribute="trailing" secondItem="qMS-Tc-vtu" secondAttribute="trailing" constant="10" id="EX4-IP-CVA"/>
+                                <constraint firstItem="qMS-Tc-vtu" firstAttribute="leading" secondItem="gKj-ae-vYc" secondAttribute="trailing" constant="20" id="Krc-vZ-SlC"/>
+                                <constraint firstItem="gKj-ae-vYc" firstAttribute="leading" secondItem="zbR-vG-vyX" secondAttribute="leading" constant="30" id="lW3-Z7-d3w"/>
+                                <constraint firstItem="gKj-ae-vYc" firstAttribute="centerY" secondItem="zbR-vG-vyX" secondAttribute="centerY" id="vue-Nw-T4j"/>
+                            </constraints>
+                        </view>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7xJ-Ts-ZNh">
+                            <rect key="frame" x="0.0" y="55" width="382" height="45"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_password" translatesAutoresizingMaskIntoConstraints="NO" id="Fym-au-tC1">
+                                    <rect key="frame" x="30" y="12.666666666666686" width="20" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="EnP-mH-4q8"/>
+                                        <constraint firstAttribute="width" constant="20" id="h1z-2Q-iN8"/>
+                                    </constraints>
+                                </imageView>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mật khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lO9-ZL-t68">
+                                    <rect key="frame" x="70" y="12.666666666666686" width="69" height="20"/>
+                                    <color key="backgroundColor" red="0.97246402499999995" green="0.97260338069999996" blue="0.9724336267" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" red="0.97246402499999995" green="0.97260338069999996" blue="0.9724336267" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="Fym-au-tC1" firstAttribute="centerY" secondItem="7xJ-Ts-ZNh" secondAttribute="centerY" id="Tu7-Na-3R7"/>
+                                <constraint firstItem="lO9-ZL-t68" firstAttribute="leading" secondItem="Fym-au-tC1" secondAttribute="trailing" constant="20" id="Vcf-oE-qCx"/>
+                                <constraint firstItem="lO9-ZL-t68" firstAttribute="centerY" secondItem="7xJ-Ts-ZNh" secondAttribute="centerY" id="XOT-hQ-cvC"/>
+                                <constraint firstAttribute="height" constant="45" id="dey-Fg-L9b"/>
+                                <constraint firstItem="Fym-au-tC1" firstAttribute="leading" secondItem="7xJ-Ts-ZNh" secondAttribute="leading" constant="30" id="rcb-Id-8mf"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to KANTEK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JS8-h8-ptT">
+                    <rect key="frame" x="97.666666666666671" y="189.33333333333334" width="218.66666666666663" height="28.666666666666657"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KcF-n5-jz0">
+                    <rect key="frame" x="181.66666666666666" y="438" width="51" height="33"/>
+                    <color key="backgroundColor" red="0.10980392156862745" green="0.53333333333333333" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="VIA-kg-sNr" secondAttribute="trailing" constant="16" id="6y2-Ic-2DO"/>
+                <constraint firstItem="VIA-kg-sNr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="HQS-qk-DWK"/>
+                <constraint firstItem="KcF-n5-jz0" firstAttribute="top" secondItem="VIA-kg-sNr" secondAttribute="bottom" constant="20" id="Mlr-d5-BPA"/>
+                <constraint firstItem="KcF-n5-jz0" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="bie-I7-O0x"/>
+                <constraint firstItem="JS8-h8-ptT" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="cVh-ku-HcL"/>
+                <constraint firstItem="VIA-kg-sNr" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="l56-ja-QgW"/>
+                <constraint firstItem="VIA-kg-sNr" firstAttribute="top" secondItem="JS8-h8-ptT" secondAttribute="bottom" constant="100" id="zV9-eF-bOh"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="132" y="153"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic_password" width="31" height="37"/>
+        <image name="ic_user_login" width="19" height="18"/>
+    </resources>
 </document>
