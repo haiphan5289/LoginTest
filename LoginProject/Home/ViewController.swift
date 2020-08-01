@@ -17,23 +17,24 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        visualize()
+        setupRX()
+    }
+}
+extension ViewController {
+    private func visualize() {
         self.view.backgroundColor = .red
         
-        if let appDomain = Bundle.main.bundleIdentifier {
-                   UserDefaults.standard.removePersistentDomain(forName: appDomain)
-               }
-        
-        let button: UIButton = UIButton(frame: .zero)
-        button.setTitle("dđ", for: .normal)
-        self.view.addSubview(button)
-        button.snp.makeConstraints { (make) in
+        let lbHome: UILabel = UILabel(frame: .zero)
+        lbHome.text = LocalizeText.home.localizedText
+        lbHome.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        lbHome.textColor = .white
+        self.view.addSubview(lbHome)
+        lbHome.snp.makeConstraints { (make) in
             make.centerX.centerY.equalToSuperview()
         }
-        button.rx.tap.bind { _ in
-            self.isLogin()
-        }.disposed(by: disposeBag)
-        
-
+    }
+    private func setupRX() {
         NotificationCenter.default.rx.notification(UIApplication.didBecomeActiveNotification).bind { _ in
             self.isLogin()
         }.disposed(by: disposeBag)

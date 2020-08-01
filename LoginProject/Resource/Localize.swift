@@ -8,9 +8,13 @@
 import UIKit
 
 enum LocalizeText: String {
+    case close = "Đóng"
     case email = "Email"
+    case home = "Trang chủ"
     case login = "Đăng nhập"
+    case notify = "Thông báo"
     case password = "Mật khẩu"
+    case setting = "Cài đặt"
     
     var text: String {
         return rawValue

@@ -18,9 +18,9 @@ enum TabbarType: Int, CaseIterable {
     var text: String {
         switch self {
         case .home:
-            return "Home"
+            return LocalizeText.home.localizedText
         case .setting:
-            return "Setting"
+            return LocalizeText.setting.localizedText
             
         }
     }
@@ -48,10 +48,6 @@ final class LoginTabbar: UITabBarController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        self.navigationItem.title = ""
-    }
-    override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.navigationItem.title = ""
     }

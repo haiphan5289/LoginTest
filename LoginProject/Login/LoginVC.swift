@@ -16,6 +16,7 @@ class LoginVC: UIViewController {
     @IBOutlet weak var tfEmail: UITextField!
     @IBOutlet weak var tfPassword: UITextField!
     @IBOutlet weak var btLogin: UIButton!
+    private let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
     private let loginVM = LoginVM()
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -33,6 +34,8 @@ extension LoginVC {
         btLogin.clipsToBounds = true
         btLogin.layer.cornerRadius = 5
         btLogin.setTitle("  \(LocalizeText.login.localizedText)  ", for: .normal)
+        
+        self.view.addGestureRecognizer(self.tapGesture)
     }
     private func setupRX() {
         let email = self.tfEmail.rx.text.orEmpty.map { (value) -> Bool in
@@ -46,7 +49,7 @@ extension LoginVC {
             return isEmail && isPassword
         }.bind { [weak self] (isValid) in
             guard let wSelf = self else { return }
-            wSelf.btLogin.setTitleColor((isValid) ? UIColor.white: UIColor.gray, for: .normal)
+            wSelf.btLogin.setTitleColor((isValid) ? UIColor.white: #colorLiteral(red: 0.3882352941, green: 0.4470588235, blue: 0.5019607843, alpha: 1), for: .normal)
             wSelf.btLogin.isEnabled = isValid
         }.disposed(by: disposeBag)
         
@@ -64,18 +67,23 @@ extension LoginVC {
                 wSelf.showAlertError(msg: msg)
                 return
             }
-            wSelf.dismiss(animated: true, completion: nil)
-            wSelf.inputUserDefault(ofType: msg, key: UserDefaulStandard.userInfo.rawValue)
+            wSelf.dismiss(animated: true) {
+                wSelf.inputUserDefault(ofType: msg, key: UserDefaulStandard.userInfo.rawValue)
+            }
         }.disposed(by: disposeBag)
         
         loginVM.isBlockUI.asObserver().bind { [weak self] (isBlock) in
             guard let wSelf = self else { return }
             wSelf.btLogin.isEnabled = !isBlock
         }.disposed(by: disposeBag)
+        
+        tapGesture.rx.event.bind { _ in
+            self.view.endEditing(true)
+        }.disposed(by: disposeBag)
     }
     private func showAlertError(msg: String) {
-        let alert: UIAlertController = UIAlertController(title: "Thông báo", message: msg, preferredStyle: .alert)
-        let btCancel: UIAlertAction = UIAlertAction(title: "Đóng", style: .cancel, handler: nil)
+        let alert: UIAlertController = UIAlertController(title: LocalizeText.notify.localizedText, message: msg, preferredStyle: .alert)
+        let btCancel: UIAlertAction = UIAlertAction(title: LocalizeText.close.localizedText, style: .cancel, handler: nil)
         alert.addAction(btCancel)
         self.present(alert, animated: true, completion: nil)
     }

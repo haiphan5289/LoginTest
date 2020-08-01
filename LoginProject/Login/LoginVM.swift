@@ -21,14 +21,14 @@ struct LoginVM {
                 switch value {
                 case .success(let data):
                     self.reponseAPI.onNext((true, data.message ?? ""))
-                    self.isBlockUI.onNext(true)
+                    self.isBlockUI.onNext(false)
                 case .failure(let err):
                     self.reponseAPI.onNext((false, err.message ?? ""))
-                    self.isBlockUI.onNext(true)
+                    self.isBlockUI.onNext(false)
                 }
             }, onError: { (err) in
                 self.reponseAPI.onNext((false, err.localizedDescription))
-                self.isBlockUI.onNext(true)
+                self.isBlockUI.onNext(false)
             }).disposed(by: disposeBag)
     }
 }
