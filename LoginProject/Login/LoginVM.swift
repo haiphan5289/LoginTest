@@ -19,8 +19,11 @@ struct LoginVM {
         RequestManager.APIData(ofType: OptionalMessageDTO<UserModel>.self, url: APILink.login.value, parameters: p, method: .post)
             .subscribe(onNext: { (value) in
                 switch value {
-                case .success(let data):
-                    self.reponseAPI.onNext((true, data.message ?? ""))
+                case .success(let res):
+                    guard  let data = res.data else {
+                        return
+                    }
+                    self.reponseAPI.onNext((true, data?.accessToken ?? ""))
                     self.isBlockUI.onNext(false)
                 case .failure(let err):
                     self.reponseAPI.onNext((false, err.message ?? ""))
